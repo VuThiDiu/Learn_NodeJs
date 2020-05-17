@@ -1,2 +1,9 @@
+
 nodemon.js
 Khi db.json thay đổi thì không cần khởi tạo lại server
+
+db.json
+Thư mục chứa các database
+
+shortid 
+tạo ra  id ngẫu nhiên không trùng lặp cho dữ liệu

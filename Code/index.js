@@ -10,6 +10,9 @@ const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync');
 const adapter = new FileSync('db.json');
  db= low(adapter);
+
+ var shortid = require('shortid');
+
  // Set some defaults (required if your JSON file is empty)
  db.defaults({ users: []})
  .write()
@@ -53,7 +56,7 @@ app.get('/users/create', function(req, res){
     res.render('users/create')
 })
 app.get('/users/:id', function(req, res){
-        var id= parseInt(req.params.id);
+        var id= req.params.id;
         
         var user=db.get('users').find({id: id}).value();
         console.log(user.name);
@@ -66,6 +69,7 @@ app.get('/users/:id', function(req, res){
 // thêm dữ liệu vào trong database
 //.write(). lưu lại vào file cho mk
  app.post('/users/create',  function(req, res){
+          req.body.id= shortid.generate();
           db.get('users').push(req.body).write();
           res.redirect('/users');
  });
