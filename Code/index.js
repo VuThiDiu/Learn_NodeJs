@@ -52,6 +52,17 @@ app.get('/users/search', function (req, res){
 app.get('/users/create', function(req, res){
     res.render('users/create')
 })
+app.get('/users/:id', function(req, res){
+        var id= parseInt(req.params.id);
+        
+        var user=db.get('users').find({id: id}).value();
+        console.log(user.name);
+        res.render('users/view', {
+            user : user
+        })
+})
+
+
 // thêm dữ liệu vào trong database
 //.write(). lưu lại vào file cho mk
  app.post('/users/create',  function(req, res){
