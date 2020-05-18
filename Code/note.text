@@ -7,3 +7,12 @@ Thư mục chứa các database
 
 shortid 
 tạo ra  id ngẫu nhiên không trùng lặp cho dữ liệu
+
+
+Object hóa một file trong javascript
+1. Khai báo để sử dụng module trong hàm
+require('path/to/file/js');
+
+module.export
+
+exports
